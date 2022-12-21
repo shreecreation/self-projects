@@ -12,6 +12,14 @@ pipeline{
                 git 'https://github.com/ikaudanaveen/Simple-DevOps-Project.git'
             }
         }
+        stage('unit testing')
+            steps{
+                sh 'mvn test'
+            }
+        stage('Integration Testing')
+            steps{
+                sh 'mvn verify -DskipUnitTests'
+            }
     }
 
 
