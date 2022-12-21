@@ -9,7 +9,17 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                git 'https://github.com/ikaudanaveen/Simple-DevOps-Project.git'
+                git 'https://github.com/ikaudanaveen/hello-world.git'
+            }
+        }
+        stage('unit test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('Integration testing'){
+            steps{
+                sh 'mvn verify -DskipUnitTests'
             }
         }
         stage('build'){
